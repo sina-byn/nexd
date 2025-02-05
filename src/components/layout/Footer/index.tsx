@@ -8,7 +8,7 @@ const { footer = [] } = nexdConfig;
 
 const Footer = () => {
   return (
-    <footer className='border-default mx-auto w-full space-y-8 border-t px-4 py-10'>
+    <footer className='border-default mx-auto w-full space-y-8 border-t bg-white/80 px-4 py-10 backdrop-blur dark:bg-black/80'>
       <div
         style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(212px, 1fr))' }}
         className='footer-top mx-auto grid max-w-4xl gap-x-4 gap-y-10'
