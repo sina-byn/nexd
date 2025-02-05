@@ -13,7 +13,7 @@ const DocLayout = async ({ children }: DocLayoutProps) => {
   const sidebarTree = await extractSidebarTree();
 
   return (
-    <>
+    <div className='relative lg:grid lg:grid-cols-[auto_1fr_auto]'>
       <div className='sidebar-pane stack pointer-events-none fixed inset-y-0 left-0 z-30 w-full lg:sticky lg:top-16 lg:z-0 lg:h-[calc(100dvh_-_4rem)] lg:w-[300px]'>
         <SidebarBackdrop />
 
@@ -25,7 +25,7 @@ const DocLayout = async ({ children }: DocLayoutProps) => {
       </div>
 
       {children}
-    </>
+    </div>
   );
 };
 

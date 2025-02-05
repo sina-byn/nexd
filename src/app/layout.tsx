@@ -22,11 +22,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en' className={GeistSans.className} suppressHydrationWarning>
       <body>
-        <div className='relative lg:grid lg:grid-cols-[auto_1fr_auto]'>
-          <Header />
-
-          {children}
-        </div>
+        <Header />
+        {children}
 
         <Footer />
 
