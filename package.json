@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "index": "node scripts/search-index.mjs",
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "npm run index && next build",
     "start": "next start",
     "lint": "next lint"
   },
