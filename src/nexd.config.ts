@@ -9,7 +9,7 @@ export const nexdConfig: NexdConfig = {
   tableOfContents: { min: 2, max: 3 },
 
   // * deployment config
-  url: 'https://nexd.vercel.app',
+  url: 'https://nexd-docs.vercel.app',
 
   // * menu config
   menu: [
