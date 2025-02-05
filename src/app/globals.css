@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+
+  --background: 0 0 0;
+  --foreground: 237 237 237;
+  --foreground-light: 237 237 237;
+
+  --primary: 0 114 245;
+
+  --neutral: 26 26 26;
+  --neutral-dark: 10 10 10;
+  --neutral-light: 49 49 49;
+  --neutral-lighter: 143 143 143;
+
+  /* * admonition colors */
+  --note: 71 71 71;
+  --note-dark: 51 51 51;
+  --note-light: 212 213 216;
+
+  --tip: 0 49 0;
+  --tip-dark: 0 35 0;
+  --tip-light: 0 148 0;
+
+  --info: 25 60 71;
+  --info-dark: 15 40 51;
+  --info-light: 76 179 212;
+
+  --warning: 77 56 0;
+  --warning-dark: 51 38 0;
+  --warning-light: 230 167 0;
+
+  --danger: 75 17 19;
+  --danger-dark: 51 10 12;
+  --danger-light: 225 50 56;
+
+  /* * inline code colors */
+  --code-background: 42 40 40;
+  --code-border: 62 60 60;
+}
+
+.light {
+  color-scheme: light;
+
+  --background: 255 255 255;
+  --foreground: 23 23 23;
+
+  --neutral: 242 242 242;
+  --neutral-light: 227 227 227;
+
+  /* * inline code colors */
+  --code-background: 247 247 247;
+  --code-border: 237 237 237;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+@layer base {
+  /* * sidebar */
+  html.sidebar-open body {
+    @apply overflow-hidden;
+  }
+
+  html.sidebar-open .sidebar,
+  html.sidebar-open .sidebar-backdrop {
+    @apply translate-x-0;
+  }
+
+  /* * menu mobile */
+  html.menu-open .menu-mobile {
+    @apply translate-x-0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin: 4.5rem;
+  }
+
+  /* * scrollbar */
+  body ::-webkit-scrollbar {
+    @apply size-1.5 appearance-none;
+  }
+
+  body ::-webkit-scrollbar-thumb {
+    @apply rounded-xl bg-neutral-700;
+  }
+}
+
+@layer components {
+  .stack {
+    @apply grid;
+    grid-template-areas: 'stack';
+  }
+
+  .stack > * {
+    grid-area: stack;
+  }
+}
+
+@layer utilities {
+  .text-neutral {
+    @apply text-neutral-lighter hover:text-black group-hover:text-black dark:hover:text-white dark:group-hover:text-white;
+  }
+
+  .border-default {
+    @apply border-neutral-800/20 dark:border-neutral-400/30;
+  }
+
+  .border-button {
+    @apply border-neutral-600/60 dark:border-neutral-400/30;
+  }
+}
+
+/* * inline code */
+p:has(> code) code {
+  border-color: rgb(var(--code-border));
+  background: rgb(var(--code-background));
+  @apply rounded-md border px-1 py-0.5 !text-sm shadow;
+}
+
+p:has(> code) code::before,
+p:has(> code) code::after {
+  @apply !content-none;
+}
+
+/* * code block */
+.expressive-code {
+  @apply mt-8;
+
+  figure.frame {
+    @apply shadow-none;
+
+    > figcaption {
+      @apply bg-none !important;
+
+      &::before {
+        @apply !content-none;
+      }
+
+      .title {
+        background: var(--code-background) !important;
+        background-clip: unset !important;
+        @apply !border-neutral-300;
+
+        &::after {
+          @apply !content-none;
+        }
+      }
+    }
+
+    > pre {
+      @apply !rounded-tr-md !border-t !border-solid !border-neutral-300;
+    }
+  }
+
+  .copy .feedback {
+    --tooltip-bg: #2a2828 !important;
+  }
+}
+
+.dark .expressive-code {
+  figure.frame {
+    --code-background: #0a0a0a;
+
+    > figcaption .title {
+      @apply !border-neutral-400/10;
+    }
+
+    > pre {
+      @apply !border-neutral-400/10;
+    }
+  }
+}
+
+/* * tabs */
+.tabs:has(.expressive-code) {
+  .expressive-code {
+    @apply mt-0;
+
+    figure.frame > pre {
+      @apply rounded-tl-none;
+    }
+  }
+}
+
+/* * admonitions */
+.admonition {
+  &:has(.admonition) .admonition {
+    @apply mt-4;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  p:has(> code) code {
+    @apply border-none text-foreground-light shadow-md;
+  }
+
+  .note {
+    a {
+      @apply text-note-light;
+    }
+
+    > p:has(> code) code {
+      @apply bg-note-dark;
+    }
+  }
+
+  .tip {
+    > p > a {
+      @apply text-tip-light;
+    }
+
+    > p:has(> code) code {
+      @apply bg-tip-dark;
+    }
+  }
+
+  .info {
+    > p > a {
+      @apply text-info-light;
+    }
+
+    > p:has(> code) code {
+      @apply bg-info-dark;
+    }
+  }
+
+  .warning {
+    > p > a {
+      @apply text-warning-light;
+    }
+
+    > p:has(> code) code {
+      @apply bg-warning-dark;
+    }
+  }
+
+  .danger {
+    > p > a {
+      @apply text-danger-light;
+    }
+
+    > p:has(> code) code {
+      @apply bg-danger-dark;
+    }
+  }
+}
+
+.admonition.note > .content > p:has(code) code {
+  @apply bg-note-dark;
+}
+
+/* * collapse - Inspired by daisyUI */
+.collapse:not(td):not(tr):not(colgroup) {
+  @apply visible;
+}
+
+.collapse {
+  @apply relative grid overflow-hidden;
+  grid-template-rows: max-content 0fr;
+  transition: grid-template-rows 0.2s;
+}
+
+.collapse > * {
+  @apply col-start-1 row-start-1;
+}
+
+.collapse-content {
+  @apply invisible col-start-1 row-start-2 min-h-0;
+  transition: visibility 0.2s;
+}
+
+.collapse > input[type='checkbox'] {
+  @apply hidden;
+}
+
+.collapse:has(> input[type='checkbox']:checked) {
+  grid-template-rows: max-content 1fr;
+}
+
+.collapse > input[type='checkbox']:checked ~ .collapse-content {
+  @apply visible min-h-fit;
+}
+
+/* * dropdown - Inspired by daisyUI */
+.dropdown {
+  @apply relative isolate inline-block;
+}
+
+.dropdown > *:not(summary):focus {
+  @apply outline-none;
+}
+
+.dropdown .dropdown-items {
+  @apply absolute;
+}
+
+.dropdown:is(:not(details)) .dropdown-items {
+  @apply invisible opacity-0;
+}
+
+.dropdown.dropdown-open .dropdown-items,
+.dropdown:focus-within .dropdown-items {
+  @apply visible opacity-100;
+}
+
+.dropdown:is(details) summary::-webkit-details-marker {
+  @apply hidden;
+}
