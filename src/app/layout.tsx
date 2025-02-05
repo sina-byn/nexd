@@ -6,6 +6,7 @@ import './globals.css';
 // * components
 import Header from '@/layout/Header';
 import Footer from '@/layout/Footer';
+import FluidCursor from '@/components/FluidCursor';
 
 // * config
 import { resolveFavicon } from '@/nexd.config';
@@ -22,10 +23,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en' className={GeistSans.className} suppressHydrationWarning>
       <body>
-        <Header />
-        {children}
+        <FluidCursor />
 
-        <Footer />
+        <div className='relative z-20'>
+          <Header />
+          {children}
+
+          <Footer />
+        </div>
 
         <div id='popup-root' />
       </body>
