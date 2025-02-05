@@ -1,49 +1,21 @@
 import Link from 'next/link';
 
 // * components
+import Box from '@/components/Box';
 import Picture from '@/components/core/Picture';
 
 const AppPage = () => {
   return (
-    <div className='z-20 h-dvh px-4 pt-40'>
-      <main className='mx-auto max-w-4xl'>
-        <div className='relative flex flex-col items-center justify-center gap-y-8 py-8'>
-          <svg
-            viewBox='0 0 1440 780'
-            className='pointer-events-none absolute -inset-y-6 mx-auto scale-[1.3]'
-          >
-            <path
-              d='M0 100, L1440 100'
-              strokeWidth={2}
-              strokeDasharray={5}
-              className='stroke-neutral-400/30'
-            />
+    <div className='z-20 px-4'>
+      <img src='/bg.svg' className='fixed top-0 ml-16 opacity-90' />
 
-            <path
-              d='M1340 0, L1340 780'
-              strokeWidth={2}
-              strokeDasharray={5}
-              className='stroke-neutral-400/30'
-            />
-
-            <path
-              d='M0 680, L1440 680'
-              strokeWidth={2}
-              strokeDasharray={5}
-              className='stroke-neutral-400/30'
-            />
-
-            <path
-              d='M100 0, L100 780'
-              strokeWidth={2}
-              strokeDasharray={5}
-              className='stroke-neutral-400/30'
-            />
-          </svg>
+      <main className='mx-auto flex max-w-6xl flex-col'>
+        <div className='relative top-0 flex flex-col items-center justify-center gap-y-8 py-32'>
+          <Box />
 
           <Picture
             alt='nexd logo'
-            className='mx-auto mt-2'
+            className='mx-auto'
             darkSrc='/logo-dark.svg'
             lightSrc='/logo-light.svg'
           />
@@ -66,9 +38,40 @@ const AppPage = () => {
             &nbsp;at its finest
           </p>
 
-          <Link href='/docs' className='mt-7 rounded-md bg-primary px-6 py-2 font-medium'>
+          <Link
+            href='/docs'
+            className='mt-7 rounded-md bg-primary px-6 py-2 font-medium text-foreground-light'
+          >
             Get Started
           </Link>
+        </div>
+
+        <div className='relative flex h-fit items-center justify-center'>
+          <Box />
+
+          <div className='grid w-full items-center justify-items-center gap-6 px-10 py-32 sm:px-24 md:grid-cols-4 lg:px-32'>
+            <h2 className='mb-12 text-center text-3xl font-bold md:col-span-4'>Built with</h2>
+
+            <a href='https://nextjs.org' target='_blank' rel='noopener nofollow noreferrer'>
+              <img src='/logos/nextjs.svg' className='w-20 grayscale hover:grayscale-0' />
+            </a>
+
+            <a href='https://tailwindcss.com/' target='_blank' rel='noopener nofollow noreferrer'>
+              <img src='/logos/tailwind.svg' className='w-20 grayscale hover:grayscale-0' />
+            </a>
+
+            <a
+              href='https://www.typescriptlang.org/'
+              target='_blank'
+              rel='noopener nofollow noreferrer'
+            >
+              <img src='/logos/ts.svg' className='w-20 grayscale hover:grayscale-0' />
+            </a>
+
+            <a href='https://mdxjs.com/' target='_blank' rel='noopener nofollow noreferrer'>
+              <img src='/logos/mdx.svg' className='w-20 grayscale hover:grayscale-0' />
+            </a>
+          </div>
         </div>
       </main>
     </div>
