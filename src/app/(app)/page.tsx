@@ -8,7 +8,10 @@ const AppPage = () => {
     <div className='z-20 h-dvh px-4 pt-40'>
       <main className='mx-auto max-w-4xl'>
         <div className='relative flex flex-col items-center justify-center gap-y-8 py-8'>
-          <svg viewBox='0 0 1440 780' className='absolute -inset-y-6 mx-auto scale-[1.3]'>
+          <svg
+            viewBox='0 0 1440 780'
+            className='pointer-events-none absolute -inset-y-6 mx-auto scale-[1.3]'
+          >
             <path
               d='M0 100, L1440 100'
               strokeWidth={2}
@@ -63,7 +66,7 @@ const AppPage = () => {
             &nbsp;at its finest
           </p>
 
-          <Link href='/docs' className='mt-6 rounded-md bg-primary px-6 py-2 font-medium'>
+          <Link href='/docs' className='mt-7 rounded-md bg-primary px-6 py-2 font-medium'>
             Get Started
           </Link>
         </div>
