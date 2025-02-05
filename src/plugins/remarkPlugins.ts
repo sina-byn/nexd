@@ -79,7 +79,9 @@ const nestedAdmonitions = (node: AdmonitionDirective) => {
 
 export const remarkMDXPlugins = () => {
   return (tree: Parent) => {
-    visit(tree, 'containerDirective', (node: Directive, index: number) => {
+    visit(tree, 'containerDirective', (node: Directive, index?: number) => {
+      if (index === undefined) return;
+
       // * handle admonitions
       if (ADMONITION_TYPES.has(node.name as AdmonitionType)) {
         const admonitionNode = node as AdmonitionDirective;
@@ -126,7 +128,10 @@ export const remarkMDXPlugins = () => {
     });
 
     // * handle ::Tree leaf directives
-    visit(tree, 'leafDirective', (node: TreeDirective, index: number) => {
+    // @ts-expect-error
+    visit(tree, 'leafDirective', (node: TreeDirective, index?: number) => {
+      if (!index) return;
+
       if (node.name === 'tree') {
         const firstChild = node.children[0];
         if (!firstChild || firstChild.type !== 'text') return;
