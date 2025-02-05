@@ -3,13 +3,13 @@ import type { BundledShikiTheme } from 'rehype-expressive-code';
 import type { NexdConfig, Icon, SyntaxHighlighter } from '@/types';
 
 export const nexdConfig: NexdConfig = {
-  editURL: 'https://github.com/sina-byn/nexd',
+  editURL: 'https://github.com/sina-byn/nexd-docs',
   favicon: { dark: '/logo-dark.svg', light: '/logo-light.svg' },
-  logo: { alt: 'this is it', dark: '/logo-dark.svg', light: '/logo-light.svg' },
+  logo: { alt: 'nexd logo', dark: '/logo-dark.svg', light: '/logo-light.svg' },
   tableOfContents: { min: 2, max: 3 },
 
   // * deployment config
-  url: 'https://github.com/sina-byn/',
+  url: 'https://nexd.vercel.app',
 
   // * menu config
   menu: [
@@ -22,8 +22,7 @@ export const nexdConfig: NexdConfig = {
     {
       title: 'social',
       items: [
-        { social: 'github', href: '#' },
-        { social: 'x', href: '#', iconOnly: true },
+        { social: 'github', href: 'https://github.com/sina-byn/nexd-docs' },
       ],
     },
     {
