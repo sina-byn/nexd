@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 // * utils
 import { extractSidebarTree } from '@/utils/sidebar';
 
