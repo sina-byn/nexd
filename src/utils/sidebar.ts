@@ -30,7 +30,7 @@ export const extractSidebarTree = async (docsDir: string = './src/docs') => {
       const { title, label, index } = await extractFrontmatter<SidebarFrontmatter>(mdx);
 
       sidebar.index = index;
-      sidebar.title = title ?? label ?? lastChunk;
+      sidebar.title = label ?? title ?? lastChunk;
       sidebar.href = docPathname(relativePath.split(path.sep).slice(1).join(path.sep));
 
       continue;
