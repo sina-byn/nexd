@@ -38,7 +38,7 @@ const DevModePopover = () => {
     <>
       <div className='absolute bottom-full right-0 -mr-2 mb-12 max-h-96 w-80 overflow-y-auto rounded-md bg-[#1c1c1e] py-2'>
         <ImgAltButton />
-        
+
         <div>
           {docs.map(async doc => {
             const mdx = fs.readFileSync(doc, 'utf-8');
@@ -74,7 +74,9 @@ const DevModePopover = () => {
                     <li className='flex overflow-auto bg-black'>
                       <div className='rounded-md p-2 text-sm'>
                         <pre>
-                          <code>{JSON.stringify(frontmatter, null, 2)}</code>
+                          <code className='!border-none !bg-transparent'>
+                            {JSON.stringify(frontmatter, null, 2)}
+                          </code>
                         </pre>
                       </div>
                     </li>
