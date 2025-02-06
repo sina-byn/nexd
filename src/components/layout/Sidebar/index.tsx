@@ -55,7 +55,7 @@ const Sidebar = ({ sidebarTree, className }: SidebarProps) => {
       className={cn(
         'sidebar z-20 flex h-full w-11/12 max-w-80 flex-col gap-y-0.5 lg:w-full lg:max-w-none',
         'border-default pointer-events-auto overflow-y-auto border-r bg-background',
-        '-translate-x-full p-4 pt-0 capitalize transition-transform duration-300 lg:translate-x-0 lg:pt-4',
+        '-translate-x-full p-4 pt-0 transition-transform duration-300 lg:translate-x-0 lg:pt-4',
         className,
       )}
     >
