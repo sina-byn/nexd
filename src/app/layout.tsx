@@ -23,6 +23,10 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en' className={GeistSans.className} suppressHydrationWarning>
+      <head>
+        <script src='/js/no-fouc.js'></script>
+      </head>
+
       <body>
         <FluidCursor />
 

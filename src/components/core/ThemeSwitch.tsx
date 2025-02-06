@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // * utils
 import { cn } from '@/utils';
@@ -18,69 +18,21 @@ const ICONS = {
 };
 
 // * types
-type Theme = 'system' | 'dark' | 'light';
+type Theme = (typeof THEMES)[number];
 
 type SetTheme = () => void | ((forcedTheme?: Theme) => void);
 
 declare global {
-  var _setTheme: SetTheme;
+  var setTheme: SetTheme;
 }
 
 // * constants
 const THEMES = ['light', 'system', 'dark'] as const;
-
 const STORAGE_KEY = 'nexd-theme';
 
-let _setTheme: SetTheme;
+let globalSetTheme: SetTheme;
 
-const NoFOUCScript = (storageKey: string) => {
-  const [SYSTEM, DARK, LIGHT] = ['system', 'dark', 'light'];
-
-  const disableTransitions = () => {
-    const style = document.createElement('style');
-
-    style.textContent = '*,*:after,*:before{transition: none !important}';
-    document.head.append(style);
-
-    return () => {
-      getComputedStyle(document.body);
-
-      const timeout = setTimeout(() => {
-        clearTimeout(timeout);
-        style.remove();
-      }, 1);
-    };
-  };
-
-  const media = matchMedia(`(prefers-color-scheme: ${DARK})`);
-
-  window._setTheme = (forcedTheme?: Theme) => {
-    const enableTransitions = disableTransitions();
-
-    const theme = forcedTheme ?? localStorage.getItem(storageKey) ?? SYSTEM;
-    const systemTheme = media.matches ? DARK : LIGHT;
-    const resolvedTheme = theme === SYSTEM ? systemTheme : theme;
-    const classList = document.documentElement.classList;
-
-    document.documentElement.dataset.theme = theme;
-    classList.toggle(DARK, resolvedTheme === DARK);
-    classList.toggle(LIGHT, resolvedTheme === LIGHT);
-
-    enableTransitions();
-  };
-
-  window._setTheme();
-  media.addEventListener('change', () => window._setTheme());
-};
-
-const Script = memo(() => (
-  <script
-    suppressHydrationWarning
-    dangerouslySetInnerHTML={{ __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')` }}
-  />
-));
-
-const ThemeSwitcher = () => {
+const ThemeSwitch = () => {
   const [client, setClient] = useState<boolean>(false);
   const [theme, setTheme] = useState<Theme>(
     () =>
@@ -90,7 +42,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     setClient(true);
-    _setTheme = window._setTheme;
+    globalSetTheme = window.setTheme;
 
     const storageHandler = (e: StorageEvent) => {
       e.key === STORAGE_KEY && setTheme(e.newValue as Theme);
@@ -103,7 +55,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, theme);
-    _setTheme();
+    globalSetTheme?.();
   }, [theme]);
 
   return (
@@ -129,15 +81,6 @@ const ThemeSwitcher = () => {
         );
       })}
     </div>
-  );
-};
-
-const ThemeSwitch = () => {
-  return (
-    <>
-      <Script />
-      <ThemeSwitcher />
-    </>
   );
 };
 
