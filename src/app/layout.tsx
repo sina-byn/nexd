@@ -6,6 +6,7 @@ import './globals.css';
 // * components
 import Header from '@/layout/Header';
 import Footer from '@/layout/Footer';
+import DevMode from '@/components/core/DevMode';
 import FluidCursor from '@/components/FluidCursor';
 
 // * config
@@ -33,6 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         <div id='popup-root' />
+        <DevMode />
       </body>
     </html>
   );
