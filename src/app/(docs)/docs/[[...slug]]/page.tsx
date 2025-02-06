@@ -44,7 +44,7 @@ const DocPage = async ({ params }: DocPageProps) => {
   const { slug = [] } = await params;
   const [mdx, pagePath] = readMDXPage(slug);
 
-  const breadcrumbs = await extractBreadcrumbs(mdx, pagePath);
+  const breadcrumbs = await extractBreadcrumbs(pagePath);
   const toc: TTableOfContents = [];
 
   await remark().use(remarkFrontmatter).use(remarkTableOfContents, toc).process(mdx);
