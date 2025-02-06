@@ -10,7 +10,7 @@ type TreeItems = TTree['items'];
 
 export type TTree = { name: string; dir?: boolean; items: TTree[] };
 
-export const stringifyTree = (tree: TreeItems, level = 0, isParentLast = false) => {
+export const stringifyTree = (tree: TreeItems, level = 0, parents: number[] = []) => {
   if (tree.length === 0) return '';
   let stringified = '';
 
@@ -20,11 +20,7 @@ export const stringifyTree = (tree: TreeItems, level = 0, isParentLast = false) 
 
     const line = [
       LF,
-      isLastNode
-        ? isParentLast
-          ? Array.from({ length: level }, (_, index) => (index < level - 1 ? PBR : SP))
-          : Array(level).fill(PBR)
-        : Array.from({ length: level }, (_, index) => (index < level ? PBR : SP)),
+      ...parents.map(p => (p === 0 ? PBR : SP)),
       isLastNode ? BRE : BR,
       node.name,
       node.dir ? '/' : '',
@@ -32,8 +28,10 @@ export const stringifyTree = (tree: TreeItems, level = 0, isParentLast = false) 
       .flat()
       .join('');
 
+    const newParents = [...parents, isLastNode ? 1 : 0];
+
     stringified += line;
-    stringified += stringifyTree(node.items, level + 1, isLastNode);
+    stringified += stringifyTree(node.items, level + 1, newParents);
   }
 
   return stringified;
