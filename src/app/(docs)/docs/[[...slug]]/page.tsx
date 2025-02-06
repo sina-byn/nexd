@@ -54,7 +54,7 @@ const DocPage = async ({ params }: DocPageProps) => {
     <>
       <div className='mx-auto min-h-dvh w-full pt-16'>
         <div className='relative isolate mx-auto w-full px-4 py-8 lg:px-8'>
-          <main className='prose mx-auto max-w-4xl dark:prose-invert lg:prose-lg prose-p:text-base prose-a:text-primary prose-a:no-underline'>
+          <main className='prose mx-auto max-w-4xl dark:prose-invert lg:prose-lg prose-p:text-base prose-a:text-primary prose-a:no-underline pb-12 lg:pb-32'>
             <Breadcrumbs crumbs={breadcrumbs} />
 
             <TableOfContentsMobile toc={toc} />
