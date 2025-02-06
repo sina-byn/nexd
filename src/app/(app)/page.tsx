@@ -39,7 +39,7 @@ const AppPage = () => {
           </p>
 
           <Link
-            href='/docs'
+            href='/docs/getting-started'
             className='mt-7 rounded-md bg-primary px-6 py-2 font-medium text-foreground-light'
           >
             Get Started
