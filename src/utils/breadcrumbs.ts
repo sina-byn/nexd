@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 // * utils
+import { normalizeTitle } from '.';
 import { extractFrontmatter } from './mdx';
 import { __srcdir, docPathname } from './path';
 
@@ -18,9 +19,10 @@ export const extractBreadcrumbs = async (pagePath: string) => {
     if (fs.existsSync(pagePath)) {
       const mdx = fs.readFileSync(pagePath, 'utf-8');
       const href = docPathname(pageDir, true);
-      const { crumb, label, title = 'Untitled' } = await extractFrontmatter(mdx);
+      const lastChunk = normalizeTitle(pageDir.split(path.sep).at(-1) ?? '');
+      const { crumb, label, title } = await extractFrontmatter(mdx);
 
-      breadcrumbs.push({ href, title: crumb ?? label ?? title });
+      breadcrumbs.push({ href, title: crumb ?? label ?? title ?? lastChunk });
     }
 
     pageDir = path.join(pageDir, '..');
