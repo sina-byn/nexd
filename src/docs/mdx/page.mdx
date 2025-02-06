@@ -1,0 +1,135 @@
+---
+title: Nexd and Mdx
+index: 1
+---
+
+# Nexd and MDX
+
+Nexd is fully built on top of MDX, offering full support for standard Markdown syntax along with custom components for enhanced functionality.
+
+## Components
+
+### Code Blocks
+
+Code blocks are powered by the rehype expressive code plugin. You can explore more in their documentation: [Expressive Code Docs](https://expressive-code.com/installation/).
+
+{/* prettier-ignore */}
+````tsx
+```bash frame="none"
+npm i <pkg>
+```
+````
+
+<br />
+
+```bash frame="none"
+npm i <pkg>
+```
+
+### Admonitions
+
+Admonitions provide callout boxes with five variants: `note`, `tip`, `info`, `warning`, and `danger`.
+
+#### Example
+
+```markdown
+:::note
+This is a note
+:::
+```
+
+:::note
+This is a note
+:::
+
+#### Nested Admonitions
+
+```markdown
+::::warning
+This is a warning
+
+    :::danger
+        This is a dangerous tip
+    :::
+
+::::
+```
+
+::::warning
+This is a warning
+
+    :::danger
+        This is a dangerous tip
+    :::
+
+::::
+
+### Tabs
+
+Tabs allow switching between multiple components, such as code snippets, UI elements, or different views of content, with only one visible at a time.
+
+````markdown
+:::tabs[npm, pnpm, yarn]
+
+```bash frame="none"
+npm install <pkg>
+```
+
+```bash frame="none"
+pnpm install <pkg>
+```
+
+```bash frame="none"
+yarn add <pkg>
+```
+
+:::
+````
+
+:::tabs[npm, pnpm, yarn]
+
+```bash frame="none"
+npm install <pkg>
+```
+
+```bash frame="none"
+pnpm install <pkg>
+```
+
+```bash frame="none"
+yarn add <pkg>
+```
+
+:::
+
+### Browser Windows
+
+Browser windows are suitable for displaying code output.
+
+```markdown
+:::browser
+This is a browser window
+:::
+```
+
+:::browser
+This is a browser window
+:::
+
+### Directory Trees
+
+Easily visualize directory structures:
+
+```
+::tree[./src/components/layout, Nexd]
+```
+
+<br />
+
+::tree[./src/components/layout, Nexd]
+
+If you need to visualize a custom tree instead of an existing directory, feel free to use [`<VirtualTree tree={tree} />`](/docs/components/).
+
+:::info
+All these markdown components are also available as [React components](/docs/components), some of which provide more customization through detailed props.
+:::
