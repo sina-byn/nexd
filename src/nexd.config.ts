@@ -14,7 +14,7 @@ export const nexdConfig: NexdConfig = {
   // * menu config
   menu: [
     { title: 'Home', href: '/' },
-    { title: 'Docs', href: '/docs' },
+    { title: 'Docs', href: '/docs/getting-started' },
   ],
 
   // * footer config
@@ -28,7 +28,7 @@ export const nexdConfig: NexdConfig = {
     {
       title: 'learn',
       items: [
-        { title: 'docs', href: '/docs' },
+        { title: 'docs', href: '/docs/getting-started' },
         { title: 'mdx', href: 'https://mdxjs.com/' },
         { title: 'next.js', href: 'https://nextjs.org/' },
         {
