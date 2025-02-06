@@ -7,7 +7,6 @@ import { cn, isEmptyObject } from '@/utils';
 import { IconArrowLeft, IconX } from '@tabler/icons-react';
 
 // * components
-// import MenuButton from '../core/MenuButton';
 import SidebarItem from './SidebarItem';
 import SidebarCollapse from './SidebarCollapse'; // * HOC
 
