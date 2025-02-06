@@ -1,0 +1,65 @@
+---
+index: 0
+---
+
+# Getting Started
+
+## Clone the Repository
+
+To get started, clone the repository:
+
+```bash frame="none"
+git clone https://github.com/sina-byn/nexd.git
+```
+
+## Install Dependencies
+
+Navigate to the project directory and install the required dependencies:
+
+```bash frame="none"
+cd nexd
+npm install
+```
+
+## Creating a New Documentation Page
+
+Nexd follows the [Next.js file-based routing](https://nextjs.org/docs/app/building-your-application/routing) convention. To create a new documentation page, add your files under the `docs` folder.
+
+### Example: Creating a Documentation Website with Two Pages
+
+To create a documentation website with the following structure:
+
+- `/docs/getting-started`
+- `/docs/components`
+
+You need to create two `page.mdx` files as follows:
+
+import VirtualTree from '@/core/VirtualTree';
+
+<VirtualTree
+  rootAlias='nexd'
+  tree={{
+    name: '.',
+    dir: true,
+    items: [
+      {
+        name: 'src',
+        dir: true,
+        items: [
+          {
+            name: 'docs',
+            dir: true,
+            items: [
+              { name: 'getting-started', dir: true, items: [{ name: 'page.mdx', items: [] }] },
+              { name: 'components', dir: true, items: [{ name: 'page.mdx', items: [] }] },
+            ],
+          },
+        ],
+      },
+    ],
+  }}
+/>
+
+## Start Writing MDX
+
+With the structure in place, you can start writing MDX content inside these files and enjoy creating rich documentation pages!
