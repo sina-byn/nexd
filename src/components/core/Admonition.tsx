@@ -49,7 +49,7 @@ const Admonition = ({ icon, type, className, children }: AdmonitionProps) => {
   return (
     <article
       className={cn(
-        'admonition not-prose text-foreground-light mt-4 overflow-hidden rounded-md border-l-[5px] p-4',
+        'admonition not-prose text-foreground-light mt-4 overflow-hidden text-base rounded-md border-l-[5px] p-4',
         type,
         ADMONITION_TYPES[type],
         className,
