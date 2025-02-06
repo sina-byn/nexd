@@ -134,7 +134,7 @@ p:has(> code) code::after {
 
 /* * code block */
 .expressive-code {
-  @apply mt-8;
+  @apply -mt-3;
 
   figure.frame {
     @apply shadow-none;
