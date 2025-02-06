@@ -6,6 +6,7 @@ import Tabs from '@/core/Tabs';
 import Picture from '@/core/Picture';
 import Collapse from '@/core/Collapse';
 import Dropdown from '@/core/Dropdown';
+import VirtualTree from '@/core/VirtualTree';
 import ExternalLink from '@/core/ExternalLink';
 import Tree, { type TreeProps } from '@/core/Tree';
 import Admonition, { type AdmonitionProps } from '@/core/Admonition';
@@ -23,6 +24,7 @@ export const useMDXComponents = (components?: MDXComponents): MDXComponents => {
     Picture,
     Collapse,
     Dropdown,
+    VirtualTree,
     BrowserWindow,
 
     // * Tabs
