@@ -16,7 +16,7 @@ const Pagination = ({ sidebarTree, pagePath }: PaginationProps) => {
   const [prevPage, nextPage] = pagination;
 
   return (
-    <footer className='grid grid-cols-2 gap-4 capitalize'>
+    <footer className='grid grid-cols-2 gap-4 capitalize mt-10'>
       {prevPage.href && (
         <div className='group flex'>
           <Link href={prevPage.href} className='flex w-fit items-end gap-x-1'>
