@@ -3,10 +3,12 @@ import fs from 'fs';
 // * fast-glob
 import { globSync as fg } from 'fast-glob';
 
-// * utils
-import { stringifyTree, type TTree } from '@/utils/tree';
+// * components
+import VirtualTree from './VirtualTree';
 
 // * types
+import { type TTree } from '@/utils/tree';
+
 export type TreeProps = { root: string; rootAlias?: string };
 
 const Tree = ({ root, rootAlias = '.' }: TreeProps) => {
@@ -40,11 +42,7 @@ const Tree = ({ root, rootAlias = '.' }: TreeProps) => {
     }
   }
 
-  return (
-    <pre className='directory-tree border border-neutral-400/10 bg-white dark:bg-[#0a0a0a]'>
-      <code>{rootAlias + stringifyTree(tree.items)}</code>
-    </pre>
-  );
+  return <VirtualTree tree={tree} rootAlias={rootAlias} />;
 };
 
 export default Tree;
