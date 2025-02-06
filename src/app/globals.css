@@ -132,6 +132,10 @@ body {
   @apply !content-none;
 }
 
+.directory-tree code {
+  @apply !bg-transparent !border-none;
+}
+
 /* * code block */
 .expressive-code {
   @apply -mt-3;
