@@ -121,14 +121,14 @@ body {
 }
 
 /* * inline code */
-p:has(> code) code {
+:not(.expressive-code:has(code)) code {
   border-color: rgb(var(--code-border));
   background: rgb(var(--code-background));
   @apply rounded-md border px-1 py-0.5 !text-sm shadow;
 }
 
-p:has(> code) code::before,
-p:has(> code) code::after {
+:not(.expressive-code:has(code)) code::before,
+:not(.expressive-code:has(code)) code::after {
   @apply !content-none;
 }
 
