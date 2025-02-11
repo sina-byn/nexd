@@ -3,6 +3,8 @@ import { GeistSans } from 'geist/font/sans';
 
 import './globals.css';
 
+export const dynamic = 'force-static';
+
 // * components
 import Header from '@/layout/Header';
 import Footer from '@/layout/Footer';
