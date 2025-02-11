@@ -1,5 +1,3 @@
-console.log('here');
-
 // * constants
 const [SYSTEM, DARK, LIGHT] = ['system', 'dark', 'light'];
 const STORAGE_KEY = 'nexd-theme';
