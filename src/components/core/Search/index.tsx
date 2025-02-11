@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
 
@@ -15,6 +16,7 @@ const Search = async () => {
   return (
     <SearchContextProvider>
       <div className='flex gap-x-10'>
+        <Script src='/js/search.js' />
         <SearchButton os={os.name} />
         <SearchPopup />
       </div>
