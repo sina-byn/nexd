@@ -18,7 +18,7 @@ for (const page of pages) {
   if (errors && errors.length > 0) console.error(errors);
 }
 
-const { errors } = await index.writeFiles({ outputPath: './public/.pagefind' });
+const { errors } = await index.writeFiles({ outputPath: './public/_pagefind' });
 if (errors && errors.length > 0) console.error(errors);
 
 await pagefind.close();
