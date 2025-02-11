@@ -16,7 +16,7 @@ const Search = async () => {
   return (
     <SearchContextProvider>
       <div className='flex gap-x-10'>
-        <Script src='/js/search.js' />
+        {process.env.NODE_ENV !== 'development' && <Script src='/js/search.js' />}
         <SearchButton os={os.name} />
         <SearchPopup />
       </div>

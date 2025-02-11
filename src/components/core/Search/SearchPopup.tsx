@@ -17,6 +17,8 @@ import { IconFileText } from '@tabler/icons-react';
 // * constants
 const EVENT_NAME = 'pagefind:instance';
 
+const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
+
 let search: (query: string) => Promise<SearchResult>;
 
 // * types
@@ -42,6 +44,7 @@ const SearchPopup = () => {
   const toggleHandler = () => setOpen(prev => !prev);
 
   const changeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (IS_DEVELOPMENT) return;
     const result = await search(e.currentTarget.value);
     if (!result) return;
 
@@ -50,6 +53,8 @@ const SearchPopup = () => {
   };
 
   useEffect(() => {
+    if (IS_DEVELOPMENT) return;
+
     (async () => {
       try {
         const pagefindHandler = () => {
@@ -92,11 +97,18 @@ const SearchPopup = () => {
                   </button>
                 </header>
 
-                {searchResult.length > 0 && (
+                {IS_DEVELOPMENT && (
+                  <div className='border-default border-t p-1.5 text-center py-10'>
+                    Search is only available in production builds. Try building and previewing the
+                    site to test it out locally.
+                  </div>
+                )}
+
+                {!IS_DEVELOPMENT && searchResult.length > 0 && (
                   <div className='border-default border-t p-1.5'>
                     {searchResult.map(({ url, excerpt, meta: { title } }) => {
                       return (
-                        <div key={url} className='border-b border-default last:border-b-0 py-1'>
+                        <div key={url} className='border-default border-b py-1 last:border-b-0'>
                           <Link
                             href={url}
                             onClick={toggleHandler}
@@ -112,7 +124,6 @@ const SearchPopup = () => {
                               />
                             </div>
                           </Link>
-
                         </div>
                       );
                     })}
