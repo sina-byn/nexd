@@ -26,7 +26,7 @@ const SidebarItem = ({
   const Icon = <IconChevronRight size={18} className='transition-transform duration-150' />;
   const className = cn(
     'flex w-full items-center gap-x-1 rounded-md px-2 py-1',
-    href === pathname ? 'active-link bg-neutral-light' : 'hover:bg-neutral',
+    href === pathname ? 'active-link bg-primary/15 text-primary' : 'hover:bg-neutral',
     _className,
   );
 
