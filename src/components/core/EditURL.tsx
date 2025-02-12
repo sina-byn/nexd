@@ -19,7 +19,7 @@ const EditURL = ({ visit, pagePath, baseURL }: EditURLProps) => {
 
   const mode = visit ? 'blob' : 'edit';
   resolvedBaseURL = resolvedBaseURL.endsWith('/') ? resolvedBaseURL.slice(0, -1) : resolvedBaseURL;
-  const editURL = [resolvedBaseURL, 'edit', mode, ...pathChunks].join('/');
+  const editURL = [resolvedBaseURL, mode, 'main', ...pathChunks].join('/');
 
   return (
     <a
