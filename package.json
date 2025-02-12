@@ -5,7 +5,7 @@
   "scripts": {
     "index": "node scripts/search-index.mjs",
     "dev": "next dev --turbo",
-    "build": "npm run index && next build",
+    "build": "next build && npm run index",
     "start": "next start",
     "lint": "next lint"
   },
