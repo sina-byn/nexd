@@ -45,6 +45,7 @@ const ThemeSwitch = () => {
     globalSetTheme = window.setTheme;
 
     const storageHandler = (e: StorageEvent) => {
+      if (!e.newValue) return;
       e.key === STORAGE_KEY && setTheme(e.newValue as Theme);
     };
 
