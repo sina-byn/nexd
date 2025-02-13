@@ -28,7 +28,7 @@ const withDefaultOpen = () => {
       contentClassName='pl-2'
       titleClassName='peer-checked:[&_>_a_>svg]:rotate-90'
     >
-      <div className='space-y-1'>{children}</div>
+      <div className='space-y-0.5 pt-0.5'>{children}</div>
     </Collapse>
   );
 };
