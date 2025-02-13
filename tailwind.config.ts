@@ -6,6 +6,7 @@ import twTypography from '@tailwindcss/typography';
 export default {
   darkMode: 'class',
   content: [
+    './core/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
