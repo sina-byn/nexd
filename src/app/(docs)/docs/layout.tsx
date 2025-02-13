@@ -1,10 +1,10 @@
 // * utils
-import { extractSidebarTree } from '@/utils/sidebar';
+import { extractSidebarTree } from '@/core/utils/sidebar';
 
 // * components
-import Sidebar from '@/layout/Sidebar';
-import MenuMobile from '@/core/MenuMobile';
-import SidebarBackdrop from '@/core/SidebarBackdrop';
+import Sidebar from '@/core/layout/Sidebar';
+import MenuMobile from '@/core/components/MenuMobile';
+import SidebarBackdrop from '@/core/components/SidebarBackdrop';
 
 // * types
 type DocLayoutProps = { children: React.ReactNode };

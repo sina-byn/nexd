@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 // * components
 import Box from '@/components/Box';
-import Picture from '@/components/core/Picture';
+import Picture from '@/core/components/Picture';
 
 const AppPage = () => {
   return (

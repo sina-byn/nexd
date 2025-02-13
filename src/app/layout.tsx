@@ -6,13 +6,13 @@ import './globals.css';
 export const dynamic = 'force-static';
 
 // * components
-import Header from '@/layout/Header';
-import Footer from '@/layout/Footer';
-import DevMode from '@/components/core/DevMode';
+import Header from '@/core/layout/Header';
+import Footer from '@/core/layout/Footer';
+import DevMode from '@/core/components/DevMode';
 import FluidCursor from '@/components/FluidCursor';
 
 // * config
-import { resolveFavicon } from '@/nexd.config';
+import { resolveFavicon } from '../../nexd.config';
 
 export const metadata: Metadata = {
   title: 'Next.js',

@@ -3,26 +3,26 @@ import type { Metadata } from 'next';
 // * remark
 import { remark } from 'remark';
 import remarkFrontmatter from 'remark-frontmatter';
-import { remarkTableOfContents } from '@/plugins/remarkPlugins';
+import { remarkTableOfContents } from '@/core/plugins/remarkPlugins';
 
 // * utils
-import { extractSidebarTree } from '@/utils/sidebar';
-import { extractBreadcrumbs } from '@/utils/breadcrumbs';
-import { readMDXPage, extractSlugs, extractFrontmatter } from '@/utils/mdx';
+import { extractSidebarTree } from '@/core/utils/sidebar';
+import { extractBreadcrumbs } from '@/core/utils/breadcrumbs';
+import { readMDXPage, extractSlugs, extractFrontmatter } from '@/core/utils/mdx';
 
 // * providers
-import MDXContent from '@/layout/MDXContent';
+import MDXContent from '@/core/layout/MDXContent';
 
 // * components
-import EditURL from '@/core/EditURL';
-import Pagination from '@/core/Pagination';
-import ScrollToTop from '@/core/ScrollToTop';
-import Breadcrumbs from '@/core/Breadcrumbs';
-import TableOfContents from '@/core/TableOfContents';
-import TableOfContentsMobile from '@/core/TableOfContentsMobile';
+import EditURL from '@/core/components/EditURL';
+import Pagination from '@/core/components/Pagination';
+import ScrollToTop from '@/core/components/ScrollToTop';
+import Breadcrumbs from '@/core/components/Breadcrumbs';
+import TableOfContents from '@/core/components/TableOfContents';
+import TableOfContentsMobile from '@/core/components/TableOfContentsMobile';
 
 // * types
-import type { TTableOfContents } from '@/types';
+import type { TTableOfContents } from '@/core/types';
 
 type DocParams = Promise<{ slug: string[] }>;
 

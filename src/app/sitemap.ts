@@ -4,11 +4,11 @@ import type { MetadataRoute } from 'next';
 import { globSync as fg } from 'fast-glob';
 
 // * config
-import { nexdConfig } from '@/nexd.config';
+import { nexdConfig } from '../../nexd.config';
 const { url } = nexdConfig;
 
 // * utils
-import { docPathname, sitePathname } from '@/utils/path';
+import { docPathname, sitePathname } from '@/core/utils/path';
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const docPages = fg('./src/docs/**/page.mdx', { absolute: true });
