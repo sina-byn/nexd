@@ -5,7 +5,7 @@ import path from 'path';
 
 export const __dirname = () => path.dirname(url.fileURLToPath(import.meta.url));
 
-export const __srcdir = path.join(__dirname(), '..');
+export const __srcdir = path.join(__dirname(), '..', '..', 'src');
 
 export const __appdir = path.join(__srcdir, 'app');
 
