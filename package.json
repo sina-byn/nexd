@@ -2,6 +2,10 @@
   "name": "nexd",
   "version": "1.0.0",
   "private": true,
+  "repository": "github:sina-byn/nexd",
+  "description": "next generation next.js documentation generator",
+  "author": "Sina Bayandorian <sina.sina.bayan@protonmail.com> (https://portfolio-sina-byn.vercel.app/)",
+  "homepage": "https://nexd-docs.vercel.app/",
   "scripts": {
     "index": "node scripts/search-index.mjs",
     "dev": "next dev --turbo",
@@ -53,5 +57,18 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "unist-util-visit": "^5.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/sina-byn/nexd/issues",
+    "email": "sina.sina.bayan@protonmail.com"
+  },
+  "keywords": [
+    "react",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "documentation",
+    "documentation-site",
+    "documentation-generator"
+  ]
 }
