@@ -12,7 +12,8 @@
     "build": "next build && npm run index",
     "start": "next start",
     "lint": "next lint",
-    "nexd": "node scripts/nexd.mjs"
+    "nexd": "node scripts/nexd.mjs",
+    "reset": "node scripts/reset.mjs"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.28.1",
