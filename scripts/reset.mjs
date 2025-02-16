@@ -1,5 +1,17 @@
 import fs from 'fs';
+import prompts from 'prompts';
 import { rimrafSync } from 'rimraf';
+
+const { ok } = await prompts(
+  {
+    name: 'ok',
+    type: 'toggle',
+    message: 'Are you sure you want to reset nexd project?',
+  },
+  { onCancel: () => process.exit() },
+);
+
+if (!ok) process.exit();
 
 // * remove unnecessary files
 rimrafSync('./src/app/(app)/page.tsx');
