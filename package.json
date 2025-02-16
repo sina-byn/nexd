@@ -2,14 +2,13 @@
   "name": "nexd",
   "version": "1.0.0",
   "private": true,
-  "bin": "bin/nexd.mjs",
   "scripts": {
     "index": "node scripts/search-index.mjs",
     "dev": "next dev --turbo",
     "build": "next build && npm run index",
     "start": "next start",
     "lint": "next lint",
-    "nexd": "npx ."
+    "nexd": "node scripts/nexd.mjs"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.28.1",
