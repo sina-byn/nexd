@@ -12,7 +12,7 @@ import DevMode from '@/core/components/DevMode';
 import FluidCursor from '@/components/FluidCursor';
 
 // * config
-import { resolveFavicon } from '../../nexd.config';
+import { resolveFavicon } from '@/core/utils/config';
 
 export const metadata: Metadata = {
   title: 'Next.js',

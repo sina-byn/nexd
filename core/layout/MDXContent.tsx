@@ -11,7 +11,7 @@ import { remarkMDXPlugins, remarkTableOfContents } from '@/core/plugins/remarkPl
 type MDXContentProps = { source: MDXRemoteProps['source'] };
 
 // * config
-import { resolveExpressiveCodeConfig } from '../../nexd.config';
+import { resolveExpressiveCodeConfig } from '@/core/utils/config';
 
 const MDXContent = ({ source }: MDXContentProps) => {
   return (
