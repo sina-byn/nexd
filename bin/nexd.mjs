@@ -86,10 +86,10 @@ const initReadline = () => {
 const startDevServer = () => {
   console.clear();
 
-  cp = spawn('npm', ['run', 'dev', '--', ...args], { stdio: 'inherit' });
-
   printCommands();
-  initReadline();
+  setTimeout(() => initReadline(), 100); 
+
+  cp = spawn('npm', ['run', 'dev', '--', ...args], { stdio: 'inherit' });
 
   cp.on('close', async () => {
     console.log(pc.red('🚫 Dev server stopped.'));
