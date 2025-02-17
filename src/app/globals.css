@@ -120,6 +120,12 @@ body {
   }
 }
 
+/* * blockquote styles */
+blockquote > p::before,
+blockquote > p::after {
+  @apply !content-none;
+}
+
 /* * inline code */
 :not(.expressive-code:has(code)) code {
   border-color: rgb(var(--code-border));
@@ -133,7 +139,7 @@ body {
 }
 
 .directory-tree code {
-  @apply !bg-transparent !border-none;
+  @apply !border-none !bg-transparent;
 }
 
 /* * code block */
