@@ -1,0 +1,27 @@
+---
+title: Components
+---
+
+# Components
+
+If you want to use the React version of Nexd components,
+you can import and use them as shown in the following example:
+
+## Admonitions
+
+```tsx frame="none"
+import Admonition from '@/core/components/Admonition';
+```
+
+import Admonition from '@/core/components/Admonition';
+
+<Admonition type='info'>This is an info</Admonition>
+
+To check the accepted props for each component, visit its source code in the ./core/components directory of your Nexd project.
+The components are designed to be easily understandable and are fully written in TypeScript for complete type safety.
+
+## Custom components
+
+To use components that are not part of Nexd Core, make sure to register
+them as MDX components in `mdx-components.ts`, located at the root of your
+Nexd project.
