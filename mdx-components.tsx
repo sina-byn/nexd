@@ -24,6 +24,7 @@ export const useMDXComponents = (components?: MDXComponents): MDXComponents => {
     Picture,
     Collapse,
     Dropdown,
+    Admonition,
     VirtualTree,
     BrowserWindow,
 
