@@ -37,7 +37,7 @@ export const useMDXComponents = (components?: MDXComponents): MDXComponents => {
 
     // * Links
     a: ({ href, children }: LinkProps) => {
-      const isRelative = href.startsWith('/');
+      const isRelative = href.startsWith('/') || href.startsWith('#');
 
       return isRelative ? (
         <NextLink href={href}>{children}</NextLink>

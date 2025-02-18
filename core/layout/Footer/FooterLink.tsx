@@ -14,7 +14,7 @@ const FooterLink = ({ item }: FooterLinkProps) => {
     return <SocialLink href={item.href} social={item.social} iconOnly={item.iconOnly} />;
   }
 
-  if (item.href.startsWith('/'))
+  if (item.href.startsWith('/') || item.href.startsWith('#'))
     return (
       <Link href={item.href} className='text-neutral'>
         {item.title}
