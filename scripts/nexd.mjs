@@ -44,6 +44,7 @@ const printCommands = () => {
    - ${pc.yellow('[rs]')}    → Restart server
    - ${pc.yellow('[cls]')}   → Clear console
    - ${pc.yellow('[.exit]')} → Exit process
+   - ${pc.yellow('[help]')}  → Open documentation
 `),
     ),
   );
@@ -71,6 +72,11 @@ const initReadline = () => {
         console.clear();
         break;
 
+      case 'help':
+        console.log(pc.red('📕 Opening documentation...'));
+        open('https://nexd-docs.vercel.app');
+        break;
+
       case '.exit':
         await exitProcess();
         break;
@@ -87,7 +93,7 @@ const startDevServer = () => {
   console.clear();
 
   printCommands();
-  setTimeout(() => initReadline(), 100); 
+  setTimeout(() => initReadline(), 100);
 
   cp = spawn('npm', ['run', 'dev', '--', ...args], { stdio: 'inherit' });
 
