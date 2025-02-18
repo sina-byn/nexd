@@ -1,0 +1,58 @@
+---
+title: Frontmatter
+index: 1
+---
+
+# Frontmatter
+
+```mdx
+// page.mdx
+---
+index: 1
+title: Title
+label: Sidebar Label 
+crumb: Breadcrumbs Title
+---
+```
+
+- `index` : The item's position within its level in the sidebar.
+
+- `title` : The `document.title` of the page.
+
+- `label` : The display title of the item inside the sidebar.
+    - if not provided, it defaults to `title`.
+    - If title is also missing, it falls back to the last segment of the file's directory name.
+
+- `crumb` : The item's title inside the Breadcrumbs navigation.
+    - Defaults to `label` if available.
+    - If label is missing, it falls back to `title`.
+    - If neither is provided, it defaults to the last segment of the file's directory name.
+
+This ensures a consistent and structured navigation experience while providing meaningful fallbacks.
+
+## Metadata Support
+
+All metadata fields supported by Next.js Metadata API are also supported in the Frontmatter of your documentation files.
+
+Simply define your metadata, and Nexd will automatically handle it for you.
+
+Example Frontmatter:
+
+```mdx
+// page.mdx
+---
+title: "Getting Started"
+label: "Quick Start Guide"
+description: "Learn how to get started with Nexd."
+metadata:
+  openGraph:
+    title: "Getting Started - Nexd Docs"
+    description: "Learn the basics of Nexd in just a few minutes."
+  twitter:
+    card: "summary_large_image"
+    title: "Getting Started - Nexd Docs"
+    description: "Kickstart your journey with Nexd!"
+---
+```
+
+With this setup, your documentation pages will seamlessly integrate with Next.js metadata handling, ensuring proper SEO, social sharing, and structured content.
