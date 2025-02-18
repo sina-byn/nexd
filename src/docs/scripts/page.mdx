@@ -1,0 +1,45 @@
+---
+title: Nexd Scripts
+---
+
+# Nexd Scripts
+
+## Nexd Script
+
+`npm run nexd` is a development server wrapper around the [Next.js dev server](https://nextjs.org/docs/app/api-reference/cli/next#next-dev-options).
+It provides additional commands for improved workflow:
+
+- `o` : Open in browser
+
+- `rs` : Restart the dev server
+
+- `cls` : Clear the console
+
+- `.exit` : Exit the dev server
+
+All Next.js dev script options are fully supported. For example:
+
+```bash
+// .Terminal
+npm run nexd -- --help
+```
+
+### Pre-Configuration
+
+To run a pre-configured version of the nexd script, simply add the necessary flags and options
+to `npm run dev` in your `package.json`.
+Since nexd spawns `npm run dev` under the hood,
+this ensures a seamless experience.
+
+## Reset Script
+
+Each Nexd app initialized using `create-nexd-app` is a clone of this website,
+including documentation pages. Running:
+
+```bash
+// .Terminal
+npm run reset
+```
+
+will reset the newly created app to a bare template, ready for you to start building.
+
