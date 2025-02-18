@@ -2,6 +2,7 @@ import { useMDXComponents } from '../../mdx-components';
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc';
 
 // * plugins
+import remarkGfm from 'remark-gfm';
 import remarkDirective from 'remark-directive';
 import remarkFrontmatter from 'remark-frontmatter';
 import rehypeExpressiveCode from 'rehype-expressive-code';
@@ -22,6 +23,7 @@ const MDXContent = ({ source }: MDXContentProps) => {
         mdxOptions: {
           rehypePlugins: [[rehypeExpressiveCode, resolveExpressiveCodeConfig()]],
           remarkPlugins: [
+            remarkGfm,
             remarkFrontmatter,
             remarkDirective,
             remarkMDXPlugins,
