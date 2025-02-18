@@ -2,7 +2,7 @@
 import type { NexdConfig } from '@/core/types';
 
 export const nexdConfig: NexdConfig = {
-  editURL: 'https://github.com/sina-byn/nexd-docs',
+  editURL: 'https://github.com/sina-byn/nexd',
   favicon: { dark: '/logo-dark.svg', light: '/logo-light.svg' },
   logo: { alt: 'nexd logo', dark: '/logo-dark.svg', light: '/logo-light.svg' },
   tableOfContents: { min: 2, max: 3 },
@@ -20,7 +20,7 @@ export const nexdConfig: NexdConfig = {
   footer: [
     {
       title: 'social',
-      items: [{ social: 'github', href: 'https://github.com/sina-byn/nexd-docs' }],
+      items: [{ social: 'github', href: 'https://github.com/sina-byn/nexd' }],
     },
     {
       title: 'learn',
