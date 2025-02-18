@@ -1,0 +1,71 @@
+---
+title: Nexd Configuration
+label: Configuration
+---
+
+# Configuration
+
+Configure your Nexd app through nexd.config.ts at the root of your project.
+
+The config is fully typed to help prevent mistakes as much as possible.
+
+|     Parameter         |                    Type                        |                       Description                                                      |
+|-----------------------|------------------------------------------------|----------------------------------------------------------------------------------------|
+|      **logo**         |            [`Picture`](#picture)               |                       header logo                                                      |
+|    **favicon**        |            [`Favicon`](#favicon)               |                       tab favicon                                                      |
+|    **editURL**        |                 `string`                       |                     github repo url                                                    |
+|      **url**          |                 `string`                       |                deployment url for sitemap                                              |
+|     **menu**          |               [`Menu`](#menu)                  |                       menu config                                                      |
+|    **footer**         |             [`Footer`](#footer)                |                      footer config                                                     |
+| **syntaxHighlighter** |          `Partial<SyntaxHighlighter>`          | syntax highlighter themes - `{ dark?: BundledShikiTheme, light?: BundledShikiTheme }`  |
+|  **tableOfContents**  |  `{min?: HeadingDepth; max?: HeadingDepth }`   |         table of contents config - defaults to <br />  `{ min: 2, max: 3 }`            |
+
+## Types
+
+### `HeadingDepth`
+
+```ts frame="none"
+type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6;
+```
+
+### `Picture`
+
+```ts frame="none"
+export type Picture = { alt: string; src: string } | { alt: string; dark: string; light: string };
+```
+
+### `Favicon`
+
+```ts frame="none"
+export type Favicon = { dark: string; light: string };
+```
+
+### `Menu`
+
+```ts frame="none"
+export type Menu = MenuItem[];
+
+export type MenuItem = MenuLink | MenuDropdown;
+
+export type MenuLink = { href: string; title: string; items?: never };
+
+export type MenuDropdown = { title: string; items: MenuLink[]; href?: never };
+```
+
+### `Footer`
+
+```ts frame="none"
+export type Footer = FooterColumn[];
+
+export type FooterColumn = { title: string; items: FooterItem[] };
+
+export type FooterItem =
+  | { href: string; title: string }
+  | { href: string; social: SocialMedia; iconOnly?: boolean };
+
+export type SocialMedia = 'x' | 'npm' | 'github' | 'reddit' | 'discord' | 'linkedin' | 'instagram';
+```
+
+## Layout
+
+The sidebar, pagination, and breadcrumbs are automatically generated based on the folder structure and frontmatter settings.
