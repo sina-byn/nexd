@@ -20,6 +20,19 @@ export const resolveFavicon = (): Icon[] => {
   ];
 };
 
+export const resolveTitle = () => {
+  const { title } = nexdConfig;
+
+  if (typeof title === 'string') return title;
+
+  const { base, prefix = '', postfix = '' } = title;
+
+  return {
+    default: base,
+    template: `${prefix} %s ${postfix}`.trim(),
+  };
+};
+
 export const resolveExpressiveCodeConfig = () => {
   const DEFAULT_THEMES: SyntaxHighlighter = {
     dark: 'github-dark-high-contrast',

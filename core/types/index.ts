@@ -2,6 +2,8 @@ import type { BundledShikiTheme } from 'rehype-expressive-code';
 
 export type Icon = { type: string; url: string; href: string; media?: ColorSchemeMedia };
 
+export type Title = string | { base: string; prefix?: string; postfix?: string };
+
 export type ColorScheme = 'dark' | 'light';
 
 export type ColorSchemeMedia = `(prefers-color-scheme: ${ColorScheme})`;
@@ -36,6 +38,7 @@ export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6;
 export type TTableOfContents = [HeadingDepth, string, string][];
 
 export type NexdConfig = {
+  title: Title;
   url: string;
   logo?: Picture;
   favicon?: Favicon;

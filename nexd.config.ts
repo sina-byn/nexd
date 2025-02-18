@@ -2,6 +2,7 @@
 import type { NexdConfig } from '@/core/types';
 
 export const nexdConfig: NexdConfig = {
+  title: { base: 'Nexd', postfix: '| Nexd' },
   editURL: 'https://github.com/sina-byn/nexd',
   favicon: { dark: '/logo-dark.svg', light: '/logo-light.svg' },
   logo: { alt: 'nexd logo', dark: '/logo-dark.svg', light: '/logo-light.svg' },
