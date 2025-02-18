@@ -11,6 +11,7 @@ The config is fully typed to help prevent mistakes as much as possible.
 
 |     Parameter         |                    Type                        |                       Description                                                      |
 |-----------------------|------------------------------------------------|----------------------------------------------------------------------------------------|
+|     **title**         |             [`Title`](#title)                  |                     document title                                                     |
 |      **logo**         |            [`Picture`](#picture)               |                       header logo                                                      |
 |    **favicon**        |            [`Favicon`](#favicon)               |                       tab favicon                                                      |
 |    **editURL**        |                 `string`                       |                     github repo url                                                    |
@@ -21,6 +22,12 @@ The config is fully typed to help prevent mistakes as much as possible.
 |  **tableOfContents**  |  `{min?: HeadingDepth; max?: HeadingDepth }`   |         table of contents config - defaults to <br />  `{ min: 2, max: 3 }`            |
 
 ## Types
+
+### `Title`
+
+```ts frame="none"
+export type Title = string | { base: string; prefix?: string; postfix?: string };
+```
 
 ### `HeadingDepth`
 
