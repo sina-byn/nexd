@@ -11,8 +11,9 @@ export const resolveFavicon = (): Icon[] => {
   const { favicon } = nexdConfig;
   if (!favicon) return [];
 
-  const type = 'image/svg+xml';
-  if (typeof favicon === 'string') return [{ type, href: favicon, url: favicon }];
+  const type = favicon.type ?? 'image/svg+xml';
+
+  if ('src' in favicon) return [{ type, href: favicon.src, url: favicon.src }];
 
   return [
     { type, href: favicon.dark, url: favicon.dark, media: '(prefers-color-scheme: dark)' },

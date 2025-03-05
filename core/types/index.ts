@@ -8,7 +8,11 @@ export type ColorScheme = 'dark' | 'light';
 
 export type ColorSchemeMedia = `(prefers-color-scheme: ${ColorScheme})`;
 
-export type Favicon = { dark: string; light: string };
+export type Favicon =
+  | { src: string; type?: FaviconType }
+  | { dark: string; light: string; type?: FaviconType };
+
+export type FaviconType = 'image/x-icon' | 'image/svg+xml' | (string & {});
 
 export type Picture = { alt: string; src: string } | { alt: string; dark: string; light: string };
 
