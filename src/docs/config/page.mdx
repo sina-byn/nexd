@@ -44,7 +44,13 @@ export type Picture = { alt: string; src: string } | { alt: string; dark: string
 ### `Favicon`
 
 ```ts frame="none"
-export type Favicon = { dark: string; light: string };
+export type Favicon =
+  | { src: string; type?: FaviconType }
+  | { dark: string; light: string; type?: FaviconType };
+
+// * FaviconType can be 'image/x-icon', 'image/svg+xml', or any other string.
+// * The default value is 'image/svg+xml'.
+export type FaviconType = 'image/x-icon' | 'image/svg+xml' | (string & {});
 ```
 
 ### `Menu`
