@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 // * components
 import Collapse, { type CollapseProps } from '@/core/components/Collapse';
@@ -8,6 +9,8 @@ type SidebarCollapseProps = Pick<CollapseProps, 'title' | 'children'>;
 
 const withDefaultOpen = () => {
   const [defaultOpen, setDefaultOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+
   const collapseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,7 +21,7 @@ const withDefaultOpen = () => {
     if (!activeLink || !collapse.contains(activeLink)) return;
 
     setDefaultOpen(true);
-  }, []);
+  }, [pathname]);
 
   return ({ title, children }: SidebarCollapseProps) => (
     <Collapse
