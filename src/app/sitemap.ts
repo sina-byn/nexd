@@ -10,6 +10,8 @@ const { url } = nexdConfig;
 // * utils
 import { docPathname, sitePathname } from '@/core/utils/path';
 
+export const dynamic = 'force-static';
+
 const sitemap = (): MetadataRoute.Sitemap => {
   const docPages = fg('./src/docs/**/page.mdx', { absolute: true });
   const sitePages = fg('./src/app/\\(app\\)/**/page.(jsx|js|tsx|ts|mdx|md)', { absolute: true });
