@@ -14,11 +14,11 @@ type MDXContentProps = { source: MDXRemoteProps['source'] };
 // * config
 import { resolveExpressiveCodeConfig } from '@/core/utils/config';
 
-const MDXContent = ({ source }: MDXContentProps) => {
+const MDXContent = async ({ source }: MDXContentProps) => {
   return (
     <MDXRemote
       source={source}
-      components={useMDXComponents()}
+      components={await useMDXComponents()}
       options={{
         mdxOptions: {
           rehypePlugins: [[rehypeExpressiveCode, resolveExpressiveCodeConfig()]],
