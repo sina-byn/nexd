@@ -18,7 +18,7 @@ import Admonition, { type AdmonitionProps } from '@/core/components/Admonition';
 import BrowserWindow, { type BrowserWindowProps } from '@/core/components/BrowserWindow';
 
 // * types
-type DynamicModule = { default: unknown };
+type DynamicModule = { default?: unknown };
 type TabsProps = { labels: string; children: React.ReactNode };
 
 export type LinkProps = { href: string; children: React.ReactNode };
@@ -38,10 +38,11 @@ const registerComponents = async () => {
     const mod: DynamicModule = await import(`@/components/${path.basename(modulePath)}`);
     const moduleName = isIndex ? dir.split('/').at(-1)! : name;
 
-    if (!mod || typeof mod.default !== 'function') {
-      throw new Error(
+    if (!mod || typeof mod?.default !== 'function') {
+      console.error(
         `Module \`@/components/${modulePath}\` does not have a default export or is not a React component`,
       );
+      continue;
     }
 
     components[moduleName] = mod.default;
