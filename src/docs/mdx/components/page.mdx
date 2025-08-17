@@ -5,22 +5,27 @@ title: Components
 # Components
 
 If you want to use the React version of Nexd components,
-you can import and use them as shown in the following example:
+you can use them as shown in the following example:
 
 ## Admonitions
 
 ```tsx frame="none"
-import Admonition from '@/core/components/Admonition';
-
 <Admonition type='info'>This is an info</Admonition>
 ```
-
-import Admonition from '@/core/components/Admonition';
 
 <Admonition type='info'>This is an info</Admonition>
 
 To check the accepted props for each component, visit its source code in the ./core/components directory of your Nexd project.
 The components are designed to be easily understandable and are fully written in TypeScript for complete type safety.
+
+For a complete list of supported components, visit `mdx-components.tsx` at the root of your project.
+
+## Automatic component registration
+
+All React components located in the `./src/components` directory with a `.jsx` or `.tsx` extension and a **default**
+export are automatically registered.
+
+Please note that only **default** exports are supported for automatic registration — components that do not provide a default export will be ignored.
 
 ## Custom components
 
