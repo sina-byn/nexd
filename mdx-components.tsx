@@ -35,17 +35,21 @@ const registerComponents = async () => {
     let modulePath = isIndex ? dir : [dir, name].join('/');
     modulePath = modulePath.replace('./src/components/', '');
 
-    const mod: DynamicModule = await import(`@/components/${path.basename(modulePath)}`);
-    const moduleName = isIndex ? dir.split('/').at(-1)! : name;
+    try {
+      const mod: DynamicModule = await import(`@/components/${path.basename(modulePath)}`);
+      const moduleName = isIndex ? dir.split('/').at(-1)! : name;
 
-    if (!mod || typeof mod?.default !== 'function') {
-      console.error(
-        `Module \`@/components/${modulePath}\` does not have a default export or is not a React component`,
-      );
-      continue;
+      if (!mod || typeof mod?.default !== 'function') {
+        console.error(
+          `Module \`@/components/${modulePath}\` does not have a default export or is not a React component`,
+        );
+        continue;
+      }
+
+      components[moduleName] = mod.default;
+    } catch (err) {
+      if (process.env.NODE_ENV === 'development') console.error(err);
     }
-
-    components[moduleName] = mod.default;
   }
 
   return components;
